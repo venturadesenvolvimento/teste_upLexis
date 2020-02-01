@@ -13,4 +13,8 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('login');
+
+Route::post('/login-validate', 'LoginController@loginValidate');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/get-article', 'ArticleController@searchArticle');
