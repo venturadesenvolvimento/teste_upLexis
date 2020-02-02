@@ -8,14 +8,10 @@ class ArticleController extends Controller
 {
     public function searchArticle(Request $request)
     {
-        $searchFor = $request->articleName;
-        //https://www.uplexis.com.br/blog/?s=machine+learning
+        $searchFor = ['s' => $request->articleName];
+        $url = "https://www.uplexis.com.br/blog/?" . http_build_query($searchFor);
 
-        $result = new \stdClass;
-        $result->id_usuario = 1;
-        $result->titulo = "Como fritar ovo sem se queimar";
-        $result->link = "https://link.com.br";
-        $result->searchedFor = $searchFor;
+        $result = file_get_contents($url);
 
         return response()->json($result);
     }

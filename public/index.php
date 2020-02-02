@@ -37,6 +37,18 @@ require __DIR__.'/../vendor/autoload.php';
 
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
+function debug($param)
+{
+    if(is_string($param))
+    {
+        \Log::debug($param);
+    }
+    else
+    {
+        \Log::debug(var_dump($param));
+    }
+}
+
 /*
 |--------------------------------------------------------------------------
 | Run The Application

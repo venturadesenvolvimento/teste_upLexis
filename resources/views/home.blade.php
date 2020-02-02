@@ -16,7 +16,7 @@
     <body>
         <div class="">
             <div class="content">
-                <input type="text" data-bind="value: nomeArtigo" placeholder="Busque artigos por aqui"/>
+                <input type="text" data-bind="value: descricaoArtigo" placeholder="Busque artigos por aqui"/>
                 <input type="button" data-bind="click: buscarArtigo" value="Buscar"/>
             </div>
         </div>
