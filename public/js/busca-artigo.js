@@ -1,23 +1,34 @@
+function Artigo(data) {
+    var self = this;
+    self.title = ko.observable(data.title);
+    self.link = ko.observable(data.link);
+}
+
 function ViewModel() {
-    this.descricaoArtigo = ko.observable('');
-    this.artigos = ko.observableArray([]);
-    this.buscarArtigo = function(){
+    var self = this;
+
+    self.descricaoArtigo = ko.observable('machine learning');
+    self.artigos = ko.observableArray([]);
+    
+    self.buscarArtigo = function(){
+        
         let data = {
             _token: csrf_token,
-            articleName: this.descricaoArtigo()
+            articleName: self.descricaoArtigo()
         };
 
         $.post('/get-article',data).done(function(result){
             $(result).find("div.post").each(function(index,element){
-                let artigo = {
+                var artigo = {
                     title: element.getElementsByClassName("title")[0].innerText.trim(),
                     link: element.getElementsByClassName("btn-uplexis")[0].getAttribute("href")
                 };
-
-                this.artigos.push(artigo);
+                
+                self.artigos.push(new Artigo(artigo));
             });
         });
     };
 };
+
 
 ko.applyBindings(new ViewModel());

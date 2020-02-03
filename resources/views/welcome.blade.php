@@ -6,26 +6,24 @@
 
         <title>Article Finder</title>
 
-        <!-- Styles -->
-        <style>
-            
-        </style>
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/style.css">
     </head>
     <body>
-        <div class="">
-            <div class="content">
+        <div class="container">
+            <div class="login">
                 <form action="/login-validate" method="POST">
                 @csrf
-                    <div>
-                        <label>Usuário:</label>
-                        <input type="text" placeholder="Insira seu nome de usuário" name="usuario"/>
+                    <div class="form-group">
+                        <label for="usuario">Usuário:</label>
+                        <input type="text" class="form-control" placeholder="Insira seu nome de usuário" name="usuario" id="usuario"/>
                     </div>
-                    <div>
-                        <label>Senha:</label>
-                        <input type="password" placeholder="Insira sua senha" name="senha"/>
+                    <div class="form-group">
+                        <label for="senha">Senha:</label>
+                        <input type="password" class="form-control" placeholder="Insira sua senha" name="senha" id="senha"/>
                     </div>
-                    <div>
-                        <input type="submit" value="Entrar"/>
+                    <div class="form-group text-right">
+                        <input type="submit" class="btn btn-secondary" value="Entrar"/>
                     </div>
                 </form>
             </div>
